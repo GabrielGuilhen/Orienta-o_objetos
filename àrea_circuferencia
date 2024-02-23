@@ -1,0 +1,22 @@
+<?php
+
+function area ($raio){
+    $PI = 3.14;
+    $area = $PI * $raio * $raio;
+    echo "\nArea: " . $area . "\n";
+    
+}
+
+function circuferencia($raio){
+    $PI = 3.14;
+    $circuferencia = 2 * $PI * $raio;
+    echo "\nCircuferencia: " . $circuferencia . "\n\n";
+   
+    
+}
+
+for ($i=1; $i <= 3 ; $i++) { 
+    $raio = readline("Digite o " . $i . "° raio em centimetros: \n\n");
+    area($raio);
+    circuferencia($raio);
+}
