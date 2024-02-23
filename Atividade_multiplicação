@@ -1,0 +1,11 @@
+  <?php
+
+$num = readline("Diga um numero:");
+$num1 = readline("Diga o Segundo Número: ");
+$soma = $num;
+
+for ($i=1; $i < $num1 ; $i++) { 
+    $num += $soma;   
+}
+
+echo $num ,"\n";
