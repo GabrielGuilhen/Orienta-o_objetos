@@ -1,0 +1,10 @@
+<?php
+
+$alpha . $vetor1 . $vetor2 . $vetor3 = array();
+function celsius($num){
+for ($i=0; $i <= 4; $i++) { 
+    $alpha = readline("Me diga um número: \n");
+    $vetor1 = ($alpha * 1.8) + 32;
+    echo $vetor1 . "\n";
+}
+}
