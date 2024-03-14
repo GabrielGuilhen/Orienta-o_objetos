@@ -1,0 +1,29 @@
+<?php
+
+$primo=array();
+
+function primo($num){
+        for($i=2;$i<=sqrt($num);$i++){ 
+            if($num%$i==0)
+                return false; 
+        } 
+        return true; 
+}
+
+$num=1;
+
+while($num>0){
+    $num=readline("Digite um numero: ");
+    if($num!=0 && $num!=1){
+        if(primo($num)==true){
+            array_push($primo, $num);
+        }
+    }
+}
+
+print "\nCODIGO ENCERRADO.\n";
+print "Numeros primos:\n";
+foreach($primo as $a){
+    print($a . " | ");
+}
+print "\n";
