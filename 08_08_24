@@ -1,0 +1,84 @@
+<?php
+
+class Pessoa{
+
+    private $nome;
+    private $endereco;
+    private $cidade;
+    private $UF;
+    private $altura;
+
+    public function getApresentacao(){
+
+        return "Olá, me chamo {$this->nome}, moro na {$this->endereco}, {$this->cidade}, {$this->UF} e possuo {$this->altura} de altura. \n";
+    }
+    public function getNome(){
+
+        return $this -> nome;
+   
+    }
+    public function setNome($nome){
+
+        $this->nome = $nome;
+        return $this;
+    
+    }
+    public function getEndereco(){
+
+        return $this -> endereco;
+    
+    }
+    public function setEndereco($endereco){
+
+        $this->endereco = $endereco;
+        return $this;
+   
+    }
+    public function getCidade(){
+
+        return $this -> cidade;
+   
+    }
+    public function setCidade($cidade){
+
+        $this->cidade = $cidade;
+        return $this;
+    
+    }
+    public function getUF(){
+
+        return $this -> UF;
+   
+    }
+    public function setUF($UF){
+
+        $this->UF = $UF;
+        return $this;
+   
+    }
+    public function getAltura(){
+
+        return $this -> altura;
+   
+    }
+    public function setAltura($altura){
+
+        $this->altura = $altura;
+        return $this;
+    }
+}
+$pessoa1 = new Pessoa();
+$pessoa1 -> setNome("Gabule")  
+         -> setEndereco("Rua cotinga,220")
+         -> setCidade("Foz do Iguaçu")
+         -> setUF("Paraná")
+         -> setAltura("1.70");
+echo $pessoa1->getApresentacao(); 
+
+$pessoa2 = new Pessoa();
+$pessoa2 -> setNome("Gustavo")  
+         -> setEndereco("Rua Vivaldo de Lima, 862")
+         -> setCidade("Foz do Iguaçu")
+         -> setUF("Paraná")
+         -> setAltura("1.72");
+echo $pessoa2->getApresentacao(); 
