@@ -105,3 +105,13 @@ elseif ($carro2->getVelocidadeMaxima() > $carro1->getVelocidadeMaxima() and $car
 else {
     echo 'O carro mais rapido é  ' . $modelo . ', marca' . $marca . ' fabricado em ' . $anoFabricacao . ' com velocidade de ' . $velocidadeMaxima .'km/h.';     
 }
+
+if ($carro1->getVelocidadeMaxima() < $carro2->getVelocidadeMaxima() and $carro3->getVelocidadeMaxima()) {
+    echo 'O carro mais rapido é o ' . $modelo . ', marca ' .  $marca .  ' fabricado em ' . $anoFabricacao .  ' com velocidade de ' . $velocidadeMaxima .'km/h.';   
+}
+elseif ($carro2->getVelocidadeMaxima() < $carro1->getVelocidadeMaxima() and $carro3->getVelocidadeMaxima()) {
+    echo 'O carro mais rapido é  ' . $modelo . ', marca' . $marca . 'fabricado em ' . $anoFabricacao . ' com velocidade de ' . $velocidadeMaxima .'km/h.';       
+}
+else {
+    echo 'O carro mais lento é  ' . $modelo . ', marca' . $marca . ' fabricado em ' . $anoFabricacao . ' com velocidade de ' . $velocidadeMaxima .'km/h.';     
+}
