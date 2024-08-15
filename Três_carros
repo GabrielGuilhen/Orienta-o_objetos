@@ -1,0 +1,107 @@
+<?php
+    
+class Carros{
+
+    private $modelo;
+    private $marca;
+    private $anoFabricacao;
+    private $velocidadeMaxima;
+
+    
+    public function getModelo()
+    {
+        return $this->modelo;
+    }
+
+  
+    public function setModelo($modelo): self
+    {
+        $this->modelo = $modelo;
+
+        return $this;
+    }
+
+  
+    public function getMarca()
+    {
+        return $this->marca;
+    }
+
+   
+    public function setMarca($marca): self
+    {
+        $this->marca = $marca;
+
+        return $this;
+    }
+
+  
+    public function getAnoFabricacao()
+    {
+        return $this->anoFabricacao;
+    }
+
+  
+    public function setAnoFabricacao($anoFabricacao): self
+    {
+        $this->anoFabricacao = $anoFabricacao;
+
+        return $this;
+    }
+
+  
+    public function getVelocidadeMaxima()
+    {
+        return $this->velocidadeMaxima;
+    }
+
+   
+    public function setVelocidadeMaxima($velocidadeMaxima): self
+    {
+        $this->velocidadeMaxima = $velocidadeMaxima;
+
+        return $this;
+    }
+} //Fim da classe
+
+$carro1 = new Carros();
+$modelo = readline ("Diga-me o modelo: ");
+$marca = readline ("Diga-me a marca: ");
+$anoFabricacao = readline ("Diga-me o ano de fabricação: ");
+$velocidadeMaxima = readline ("Diga-me a velocidade maxima: ");
+$carro1->setModelo($modelo);
+$carro1->setMarca($marca);
+$carro1->setAnoFabricacao($anoFabricacao);
+$carro1->setVelocidadeMaxima($velocidadeMaxima);
+
+
+$carro2 = new Carros();
+$modelo = readline ("Diga-me o modelo: ");
+$marca = readline ("Diga-me a marca: ");
+$anoFabricacao = readline ("Diga-me o ano de fabricação: ");
+$velocidadeMaxima = readline ("Diga-me a velocidade maxima: ");
+$carro2->setModelo($modelo);
+$carro2->setMarca($marca);
+$carro2->setAnoFabricacao($anoFabricacao);
+$carro2->setVelocidadeMaxima($velocidadeMaxima);
+
+
+$carro3 = new Carros();
+$modelo = readline ("Diga-me o modelo: ");
+$marca = readline ("Diga-me a marca: ");
+$anoFabricacao = readline ("Diga-me o ano de fabricação: ");
+$velocidadeMaxima = readline ("Diga-me a velocidade maxima: ");
+$carro3->setModelo($modelo);
+$carro3->setMarca($marca);
+$carro3->setAnoFabricacao($anoFabricacao);
+$carro3->setVelocidadeMaxima($velocidadeMaxima);
+
+if ($carro1->getVelocidadeMaxima() > $carro2->getVelocidadeMaxima() and $carro3->getVelocidadeMaxima()) {
+    echo 'O carro mais rapido é o ' . $modelo . ', marca ' .  $marca .  ' fabricado em ' . $anoFabricacao .  ' com velocidade de ' . $velocidadeMaxima .'km/h.';   
+}
+elseif ($carro2->getVelocidadeMaxima() > $carro1->getVelocidadeMaxima() and $carro3->getVelocidadeMaxima()) {
+    echo 'O carro mais rapido é  ' . $modelo . ', marca' . $marca . 'fabricado em ' . $anoFabricacao . ' com velocidade de ' . $velocidadeMaxima .'km/h.';       
+}
+else {
+    echo 'O carro mais rapido é  ' . $modelo . ', marca' . $marca . ' fabricado em ' . $anoFabricacao . ' com velocidade de ' . $velocidadeMaxima .'km/h.';     
+}
