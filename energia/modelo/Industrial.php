@@ -1,14 +1,15 @@
 <?php
 
-require_once("IConsumidorEnergia.php");
+    require_once("IConsumidorEnergia.php");
 
-    class Residencial implements IConsumidorEnergia{
+    class Industrial implements IConsumidorEnergia{
         private float $consumoDiario;
-        
-        public function getValorFatura(){
-            $valorResidencial = $this-> consumoDiario * 1.05;
-            return $valorResidencial;
-        }
+
+    function getValorFatura()
+    {
+        $valorIndustrial = $this -> consumoDiario * 1.80;
+        return $valorIndustrial;
+    }
 
         public function getConsumoDiario(): float
         {
