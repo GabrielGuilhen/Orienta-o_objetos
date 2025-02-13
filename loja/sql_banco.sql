@@ -1,7 +1,7 @@
 CREATE DATABASE loja;
 USE loja;
 CREATE TABLE IF NOT EXISTS produtos (
-    id INT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     descricao TEXT,
     preco DECIMAL(10, 2) NOT NULL,
