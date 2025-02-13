@@ -1,16 +1,19 @@
 <?php
-require_once 'Produto.php';
-require_once 'Database.php';
 
-class ProdutoDAO {
+require_once("modelo/Produto.php");
+require_once("util/Conexao.php");
+
+class ProdutoDAO
+{
     private $conn;
 
-    public function __construct() {
-        $this->conn = Database::getConnection();
+    public function __construct()
+    {
+        $this->conn = Conexao::getCon();
     }
 
-    // Inserir um novo produto
-    public function inserir(Produto $produto) {
+    public function inserir(Produto $produto)
+    {
         $sql = "INSERT INTO produtos (nome, descricao, preco, quantidade, categoria)
                 VALUES (:nome, :descricao, :preco, :quantidade, :categoria)";
         $stmt = $this->conn->prepare($sql);
@@ -21,28 +24,56 @@ class ProdutoDAO {
             ':quantidade' => $produto->getQuantidade(),
             ':categoria' => $produto->getCategoria()
         ]);
+
+        echo "Produto inserido com sucesso!\n";
     }
 
-    // Listar todos os produtos
-    public function listar() {
+    public function listar()
+    {
         $sql = "SELECT * FROM produtos";
         $stmt = $this->conn->query($sql);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $this->mapProdutos($produtos);
     }
 
-    // Buscar um produto por ID
-    public function buscarPorId($id) {
+    public function buscarPorId($id)
+    {
         $sql = "SELECT * FROM produtos WHERE id = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([':id' => $id]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        $produto = $stmt->fetch(PDO::FETCH_ASSOC);  
+        
+        
+        return $produto ? $this->mapProdutos([$produto])[0] : null;
     }
 
-    // Excluir um produto por ID
-    public function excluir($id) {
+    public function excluir($id)
+    {
         $sql = "DELETE FROM produtos WHERE id = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([':id' => $id]);
+
+        echo "Produto excluído com sucesso!\n";
+    }
+
+    private function mapProdutos($resultado)
+    {
+        $produtos = [];
+        foreach ($resultado as $linha) {
+            $produto = new Produto(
+                $linha['nome'], 
+                $linha['descricao'], 
+                $linha['preco'], 
+                $linha['quantidade'], 
+                $linha['categoria'], 
+                $linha['id']
+            );
+            $produtos[] = $produto;
+        }
+
+        return $produtos; 
     }
 }
 ?>
