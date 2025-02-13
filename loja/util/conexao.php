@@ -12,8 +12,8 @@ class Conexao {
                          PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION,
                         PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC);
 
-            $dadosCon="mysql:host=localhost:3306;dbname=produtos";
-            self::$con=new PDO($dadosCon, "root", "root", $opcoes);
+            $dadosCon="mysql:host=localhost:3306;dbname=loja";
+            self::$con=new PDO($dadosCon, "root", "bancodedados", $opcoes);
             
         }
 
